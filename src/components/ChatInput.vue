@@ -9,13 +9,6 @@ function sendMessage() {
   emit('send', message.value)
   message.value = ''
 }
-
-function handleKeydown(e: KeyboardEvent) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault()
-    sendMessage()
-  }
-}
 </script>
 
 <template>
@@ -24,7 +17,6 @@ function handleKeydown(e: KeyboardEvent) {
       <textarea 
         v-model="message" 
         placeholder="Send a message to all models..." 
-        @keydown="handleKeydown"
         rows="1"
       ></textarea>
       <button @click="sendMessage" class="send-btn">
